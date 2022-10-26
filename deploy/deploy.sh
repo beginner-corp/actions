@@ -16,6 +16,10 @@ fi
 # Base command
 cmd="begin deploy"
 
+test="hi"
+test+=" there"
+echo "test: $test"
+
 echo "cmd: $cmd"
 echo "log: $LOG"
 echo "args: $BEGIN_ARGS"
