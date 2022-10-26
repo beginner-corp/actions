@@ -25,9 +25,10 @@ fi
 
 # Allow arbitrary args
 # TODO disallow &[&]?
-if [[ ! -z "${BEGIN_ARGS}" ]]; then
+if [ ! -z "${BEGIN_ARGS}" ]; then
   cmd="$cmd $BEGIN_ARGS"
 fi
 
 # Hit it
+echo "final cmd: $cmd"
 $cmd
