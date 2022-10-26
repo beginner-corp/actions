@@ -16,29 +16,18 @@ fi
 # Base command
 cmd="begin deploy"
 
-test="hi"
-test="$test there"
-echo "test: $test"
-
-echo "cmd: $cmd"
-echo "log: $LOG"
-echo "args: $BEGIN_ARGS"
-
 # Set log
 if [ "$LOG" = "verbose" ]; then
-  echo "got verbose!"
   cmd="$cmd -v"
 elif [ "$LOG" = "debug" ]; then
-  echo "got debug!"
   cmd="$cmd -d"
 fi
 
-# # Allow arbitrary args
-# # TODO disallow &[&]?
-# if [[ ! -z "${BEGIN_ARGS}" ]];
-#   then cmd+=" $BEGIN_ARGS"
-# fi
+# Allow arbitrary args
+# TODO disallow &[&]?
+if [[ ! -z "${BEGIN_ARGS}" ]]; then
+  cmd="$cmd $BEGIN_ARGS"
+fi
 
 # Hit it
-echo "final cmd: $cmd"
 $cmd
