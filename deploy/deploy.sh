@@ -19,12 +19,14 @@ cmd="begin deploy"
 echo "log: $LOG"
 echo "args: $BEGIN_ARGS"
 
-# # Set log
-# if [ "$LOG" = "verbose" ];
-#   then cmd+=" -v"
-# elif [ "$LOG" = "debug" ];
-#   then cmd+=" -d"
-# fi
+# Set log
+if [ "$LOG" = "verbose" ]; then
+  echo "got verbose!"
+  cmd+=" -v"
+elif [ "$LOG" = "debug" ]; then
+  echo "got debug!"
+  cmd+=" -d"
+fi
 
 # # Allow arbitrary args
 # # TODO disallow &[&]?
@@ -33,4 +35,5 @@ echo "args: $BEGIN_ARGS"
 # fi
 
 # Hit it
+echo "final cmd: $cmd"
 $cmd
