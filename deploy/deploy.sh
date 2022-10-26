@@ -8,12 +8,16 @@ if ! command -v begin > /dev/null; then
   exit 1
 fi
 
-# Install deps
-# TODO make conditional
-npm i --production
+# Install deps if necessary
+if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
+  npm i --production
+fi
 
 # Base command
 cmd="begin deploy"
+
+echo "log: $LOG"
+echo "args: $BEGIN_ARGS"
 
 # # Set log
 # if [ "$LOG" = "verbose" ];
