@@ -38,7 +38,7 @@ runs:
       shell: bash
 
     # Run the deployment
-    - run: deploy.sh
+    - run: ${{ github.action_path }}/deploy/deploy.sh
       shell: bash
       env:
         BEGIN_TOKEN: ${{ inputs.begin_token }}
