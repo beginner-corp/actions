@@ -34,11 +34,11 @@ runs:
     # Run the deployment
     - run: deploy.sh
       shell: bash
-        with:
-          begin_token: ${{ inputs.begin_token }}
-          log: ${{ inputs.log }}
-          begin_args: ${{ inputs.begin_args }}
-          CI: true
+      with:
+        begin_token: ${{ inputs.begin_token }}
+        log: ${{ inputs.log }}
+        begin_args: ${{ inputs.begin_args }}
+        CI: true
 
 branding:
   icon: 'sunrise'
