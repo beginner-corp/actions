@@ -27,10 +27,10 @@ echo "args: $BEGIN_ARGS"
 # Set log
 if [ "$LOG" = "verbose" ]; then
   echo "got verbose!"
-  cmd+=" -v"
+  cmd="$cmd -v"
 elif [ "$LOG" = "debug" ]; then
   echo "got debug!"
-  cmd+=" -d"
+  cmd="$cmd -d"
 fi
 
 # # Allow arbitrary args
