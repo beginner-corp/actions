@@ -31,6 +31,12 @@ runs:
       run: curl -sS https://dl.begin.com/install.sh | sh -s main
       shell: bash
 
+    - run: echo 'hi is this thing on'
+      shell: bash
+
+    - run: ls -la .
+      shell: bash
+
     # Run the deployment
     - run: deploy.sh
       shell: bash
