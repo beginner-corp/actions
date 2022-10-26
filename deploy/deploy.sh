@@ -21,5 +21,7 @@ fi
 if [[ ! -z "${BEGIN_ARGS}" ]]; then cmd+=" $BEGIN_ARGS"
 fi
 
+echo "$HOME/.begin" >> $GITHUB_PATH
+
 # Hit it
 $cmd
