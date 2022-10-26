@@ -23,6 +23,11 @@ elif [ "$LOG" = "debug" ]; then
   cmd="$cmd -d"
 fi
 
+# Deploy a specific named environment
+if [ ! -z "${BEGIN_ENV_NAME}" ]; then
+  cmd="$cmd -e $BEGIN_ENV_NAME"
+fi
+
 # Allow arbitrary args
 # TODO disallow &[&]?
 if [ ! -z "${BEGIN_ARGS}" ]; then
