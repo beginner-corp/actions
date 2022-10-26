@@ -36,12 +36,6 @@ runs:
       run: echo "$HOME/.begin" >> $GITHUB_PATH
       shell: bash
 
-    # - run: echo 'hi is this thing on'
-    #   shell: bash
-
-    # - run: ls -la .
-    #   shell: bash
-
     # Run the deployment
     - run: ${{ github.action_path }}/deploy.sh
       shell: bash
