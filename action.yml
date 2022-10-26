@@ -23,11 +23,13 @@ runs:
     - name: Install Begin
       if: inputs.channel != 'main'
       run: curl -sS https://dl.begin.com/install.sh | sh
+      shell: bash
 
     # User specified the 'main' channel
     - name: Install Begin ('main' channel)
       if: inputs.channel == 'main'
       run: curl -sS https://dl.begin.com/install.sh | sh -s main
+      shell: bash
 
     # Run the deployment
     - run: deploy.sh
