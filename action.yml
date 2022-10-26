@@ -10,7 +10,7 @@ inputs:
     description: 'Enable additional logging: verbose|debug'
     required: false
   channel:
-    description: 'Enable experimental features by specifying \'main\''
+    description: 'Enable experimental features by specifying: main'
     required: false
   begin_args:
     description: 'Provide arbitrary arguments to the Begin CLI'
