@@ -17,7 +17,7 @@ fi
 cmd="begin deploy"
 
 test="hi"
-test+=" there"
+test="$test there"
 echo "test: $test"
 
 echo "cmd: $cmd"
