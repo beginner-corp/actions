@@ -16,7 +16,7 @@ fi
 # Base command
 cmd="begin deploy"
 
-# Set log
+# Set log level
 if [ "$LOG" = "verbose" ]; then
   cmd="$cmd -v"
 elif [ "$LOG" = "debug" ]; then
@@ -30,5 +30,4 @@ if [ ! -z "${BEGIN_ARGS}" ]; then
 fi
 
 # Hit it
-echo "final cmd: $cmd"
 $cmd
