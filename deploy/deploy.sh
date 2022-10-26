@@ -20,13 +20,16 @@ fi
 cmd="begin deploy"
 
 # Set log
-if [ "$LOG" = "verbose" ]; then cmd+=" -v"
-elif [ "$LOG" = "debug" ]; then cmd+=" -d"
+if [ "$LOG" = "verbose" ];
+  then cmd+=" -v"
+elif [ "$LOG" = "debug" ];
+  then cmd+=" -d"
 fi
 
 # Allow arbitrary args
 # TODO disallow &[&]?
-if [[ ! -z "${BEGIN_ARGS}" ]]; then cmd+=" $BEGIN_ARGS"
+if [[ ! -z "${BEGIN_ARGS}" ]];
+  then cmd+=" $BEGIN_ARGS"
 fi
 
 # Hit it
