@@ -6,14 +6,17 @@ inputs:
   begin_token:
     description: 'Begin token'
     required: true
-  log:
-    description: 'Enable additional logging: verbose|debug'
+  begin_env_name:
+    description: 'Deploy a specific named environment'
+    required: false
+  begin_args:
+    description: 'Provide arbitrary arguments to the Begin CLI'
     required: false
   channel:
     description: 'Enable experimental features by specifying: main'
     required: false
-  begin_args:
-    description: 'Provide arbitrary arguments to the Begin CLI'
+  log:
+    description: 'Enable additional logging: verbose|debug'
     required: false
 
 runs:
