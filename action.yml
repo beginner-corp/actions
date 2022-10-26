@@ -1,0 +1,42 @@
+name: 'Deploy to Begin'
+author: 'Beginner Corp'
+description: 'GitHub Action for deploying your app to Begin'
+
+inputs:
+  begin_token:
+    description: 'Begin token'
+    required: true
+  log:
+    description: 'Enable additional logging: verbose|debug'
+    required: false
+  channel:
+    description: 'Enable experimental features by specifying \'main\''
+    required: false
+  begin_args:
+    description: 'Provide arbitrary arguments to the Begin CLI'
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    # Default to the production ('latest') channel
+    - name: Install Begin
+      if: inputs.channel != 'main'
+      run: curl -sS https://dl.begin.com/install.sh | sh
+
+    # User specified the 'main' channel
+    - name: Install Begin ('main' channel)
+      if: inputs.channel == 'main'
+      run: curl -sS https://dl.begin.com/install.sh | sh -s main
+
+    # Run the deployment
+    - run: deploy.sh
+      shell: bash
+        with:
+          begin_token: ${{ inputs.begin_token }}
+          log: ${{ inputs.log }}
+          begin_args: ${{ inputs.begin_args }}
+
+branding:
+  icon: 'sunrise'
+  color: 'white'
