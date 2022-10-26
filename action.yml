@@ -36,6 +36,7 @@ runs:
           begin_token: ${{ inputs.begin_token }}
           log: ${{ inputs.log }}
           begin_args: ${{ inputs.begin_args }}
+          CI: true
 
 branding:
   icon: 'sunrise'
