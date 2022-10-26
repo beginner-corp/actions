@@ -2,12 +2,13 @@
 
 set -e
 
-echo "begin path? $HOME/.begin"
-echo "github path before: $GITHUB_PATH"
-echo "path before: $PATH"
-echo "$HOME/.begin" >> $GITHUB_PATH
-echo "github path after: $GITHUB_PATH"
-echo "path after: $PATH"
+# echo "begin path? $HOME/.begin"
+# echo "github path before: $GITHUB_PATH"
+# echo "path before: $PATH"
+# echo "$HOME/.begin" >> $GITHUB_PATH
+# echo "github path after: $GITHUB_PATH"
+# echo "path after: $PATH"
+echo "path: $PATH"
 
 # Make sure Begin is installed
 if ! command -v begin > /dev/null; then
