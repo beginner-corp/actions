@@ -16,6 +16,7 @@ fi
 # Base command
 cmd="begin deploy"
 
+echo "cmd: $cmd"
 echo "log: $LOG"
 echo "args: $BEGIN_ARGS"
 
