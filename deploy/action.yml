@@ -16,7 +16,8 @@ inputs:
     description: 'Enable experimental features by specifying: main'
     required: false
   log:
-    description: 'Enable additional logging: verbose|debug'
+    description: 'Set log level: quiet|verbose|debug (default: verbose)'
+    default: verbose
     required: false
 
 runs:
