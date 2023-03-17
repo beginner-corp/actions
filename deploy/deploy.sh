@@ -2,6 +2,15 @@
 
 set -e
 
+# Check for Begin app ID
+if  grep -q "@begin" ".arc"  &&  grep -q "appID" ".arc"
+then
+  echo "Begin app exists"
+else
+  echo "Please create your app via `begin create` before attempting to deploy"
+  exit 0
+fi
+
 # Make sure Begin is installed
 if ! command -v begin > /dev/null; then
   echo "Error: Begin not found" 1>&2
