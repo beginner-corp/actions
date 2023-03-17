@@ -3,12 +3,15 @@
 set -e
 
 # Check for Begin app ID
-if grep -q "@begin" ".arc"  &&  grep -q "appID" ".arc"
+ARCFILE=".arc"
+if [ -e app.arc ]
 then
-  echo "Begin app exists"
-elif grep -q "@begin" "app.arc"  &&  grep -q "appID" "app.arc"
+  ARCFILE="app.arc"
+fi
+
+if grep -q "@begin" "$ARCFILE"  &&  grep -q "appID" "$ARCFILE"
 then
-  echo "Begin app exists"
+  echo "Begin appID exists"
 else
   echo "Please create your app via `begin create` before attempting to deploy"
   exit 0
