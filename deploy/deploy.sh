@@ -3,7 +3,10 @@
 set -e
 
 # Check for Begin app ID
-if  grep -q "@begin" ".arc"  &&  grep -q "appID" ".arc"
+if grep -q "@begin" ".arc"  &&  grep -q "appID" ".arc"
+then
+  echo "Begin app exists"
+elif grep -q "@begin" "app.arc"  &&  grep -q "appID" "app.arc"
 then
   echo "Begin app exists"
 else
