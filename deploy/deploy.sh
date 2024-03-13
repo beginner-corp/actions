@@ -22,13 +22,11 @@ if ! command -v begin > /dev/null; then
   echo "Error: Begin not found" 1>&2
   exit 1
 fi
-echo "Begin app is installed"
 
 # Install deps if necessary
 if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
   npm i --production
 fi
-echo "npm install completed"
 
 # Base command
 cmd="begin deploy"
@@ -50,9 +48,6 @@ fi
 if [ ! -z "${BEGIN_ARGS}" ]; then
   cmd="$cmd $BEGIN_ARGS"
 fi
-
-echo "running this command"
-echo "$cmd"
 
 # Hit it
 $cmd
