@@ -18,7 +18,7 @@ else
 fi
 
 # Make sure Begin is installed
-if ! command -v begin > /dev/null; then
+if ! command -v npx begin > /dev/null; then
   echo "Error: Begin not found" 1>&2
   exit 1
 fi
@@ -29,7 +29,7 @@ if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
 fi
 
 # Base command
-cmd="begin deploy"
+cmd="npx begin deploy"
 
 # Set log level
 if [ "$LOG" = "verbose" ]; then
