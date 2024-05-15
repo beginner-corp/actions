@@ -11,10 +11,10 @@ fi
 
 if grep -q "@begin" "$ARCFILE"  &&  grep -q "appID" "$ARCFILE"
 then
-  echo "Begin appID exists"
+  echo "Discovered Begin app ID in $ARCFILE"
 else
   echo "Please create your app via `begin create` before attempting to deploy"
-  exit 0
+  exit 1
 fi
 
 # Make sure Begin is installed
