@@ -28,7 +28,7 @@ if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
   npm i --omit=dev
 fi
 
-npx begin telemetry --disable > /dev/null
+: $( npx begin telemetry --disable > /dev/null )
 
 # Base command
 cmd="npx begin deploy"
