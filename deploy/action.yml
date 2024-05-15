@@ -25,16 +25,13 @@ runs:
   steps:
     # Default to the production ('latest') channel
     - name: Install Begin
-      # check channel is undefined
       if: inputs.channel == null
       run: npm i -g @begin/deploy
       shell: bash
 
     # User specified channel
-    - name: Install Begin ({{ inputs.channel }} channel)
-      # check if channel is defined
       if: inputs.channel
-      run: npm i -g @begin/deploy@{{ inputs.channel }}
+      run: npm i -g @begin/deploy@${{ inputs.channel }}
       shell: bash
 
     # Run the deployment
