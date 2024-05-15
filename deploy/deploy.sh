@@ -9,6 +9,11 @@ then
   ARCFILE="app.arc"
 fi
 
+if [ -z "${BEGIN_TOKEN}" ]; then
+  echo "Error: Missing begin_token"
+  exit 1
+fi
+
 if grep -q "@begin" "$ARCFILE"  &&  grep -q "appID" "$ARCFILE"
 then
   echo "Discovered Begin app ID in $ARCFILE"
@@ -28,7 +33,7 @@ if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
   npm i --omit=dev
 fi
 
-: $( npx begin telemetry --disable > /dev/null )
+npx begin telemetry --disable &> /dev/null
 
 # Base command
 cmd="npx begin deploy"
