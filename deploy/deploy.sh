@@ -25,8 +25,10 @@ fi
 
 # Install deps if necessary
 if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
-  npm i --production
+  npm i --omit=dev
 fi
+
+npx begin telemetry --disable
 
 # Base command
 cmd="npx begin deploy"
