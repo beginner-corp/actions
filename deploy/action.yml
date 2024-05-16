@@ -26,7 +26,7 @@ runs:
     # Default to the production ('latest') channel
     - name: Install Begin
       if: inputs.channel == null
-      run: npm i -g @begin/deploy
+      run: npm i -g @begin/deploy@latest
       shell: bash
 
     # User specified channel
@@ -34,10 +34,6 @@ runs:
       if: inputs.channel
       run: npm i -g @begin/deploy@${{ inputs.channel }}
       shell: bash
-
-    # - name: Setup Begin Config
-    #   run: ${{ github.action_path }}/setup-begin.sh
-    #   shell: bash
 
     # Run the deployment
     - name: Deploy to Begin

@@ -33,8 +33,6 @@ if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
   npm i --omit=dev
 fi
 
-# npx begin telemetry --disable
-
 # Base command
 cmd="npx begin deploy"
 
@@ -56,8 +54,10 @@ if [ ! -z "${BEGIN_ARGS}" ]; then
   cmd="$cmd $BEGIN_ARGS"
 fi
 
-echo "Deploying to Begin"
-echo "Executing: $cmd"
-
 # Hit it
-$cmd
+if $cmd; then
+  echo "Deployed successfully"
+else
+  echo "Deploy failed"
+  exit 1
+fi
