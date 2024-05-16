@@ -58,4 +58,4 @@ fi
 
 # Hit it
 message = $( $cmd )
-echo $message
+echo "$message"
