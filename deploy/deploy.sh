@@ -57,5 +57,4 @@ if [ ! -z "${BEGIN_ARGS}" ]; then
 fi
 
 # Hit it
-message = $( $cmd )
-echo "$message"
+$cmd
