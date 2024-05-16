@@ -47,6 +47,7 @@ runs:
         BEGIN_TOKEN: ${{ inputs.begin_token }}
         BEGIN_ENV_NAME: ${{ inputs.begin_env_name }}
         BEGIN_ARGS: ${{ inputs.begin_args }}
+        BEGIN_DISABLE_TELEMETRY: true
         LOG: ${{ inputs.log }}
         CI: true
 
