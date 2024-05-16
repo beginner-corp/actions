@@ -44,8 +44,8 @@ runs:
       run: |
         echo "Setting up Begin config"
         sudo mkdir -p ~/.begin
-        echo "Creating ~/.begin/config.json"
-        echo '{"collectBasicTelemetry":false}' > ~/.begin/config.json
+        sudo touch ~/.begin/config.json
+        sudo echo '{"collectBasicTelemetry":false}' > ~/.begin/config.json
 
     # Run the deployment
     - name: Deploy to Begin
