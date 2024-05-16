@@ -56,6 +56,7 @@ if [ ! -z "${BEGIN_ARGS}" ]; then
   cmd="$cmd $BEGIN_ARGS"
 fi
 
+echo "Deploying to Begin"
 echo "Executing: $cmd"
 
 # Hit it
