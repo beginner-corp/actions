@@ -35,9 +35,9 @@ runs:
       run: npm i -g @begin/deploy@${{ inputs.channel }}
       shell: bash
 
-    - name: Setup Begin Config
-      run: ${{ github.action_path }}/setup-begin.sh
-      shell: bash
+    # - name: Setup Begin Config
+    #   run: ${{ github.action_path }}/setup-begin.sh
+    #   shell: bash
 
     # Run the deployment
     - name: Deploy to Begin
