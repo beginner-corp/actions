@@ -2,7 +2,7 @@
 
 set -e
 
-# create ~/.begin dir
-mkdir -p ~/.begin
-# create ~/.begin/config with telemetry disabled
-echo '{"collectBasicTelemetry":false}' > ~/.begin/config.json
+# ! GH Actions won't allow this:
+sudo mkdir -p ~/.begin
+sudo touch ~/.begin/config.json
+sudo echo '{"collectBasicTelemetry":false}' > ~/.begin/config.json

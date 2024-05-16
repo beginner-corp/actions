@@ -39,13 +39,6 @@ runs:
     #   run: ${{ github.action_path }}/setup-begin.sh
     #   shell: bash
 
-    - name: Setup Begin Config
-      shell: bash
-      run: |
-        echo "Setting up Begin config"
-        sudo mkdir -p $HOME/.begin
-        sudo echo '{"collectBasicTelemetry":false}' > $HOME/.begin/config.json
-
     # Run the deployment
     - name: Deploy to Begin
       run: ${{ github.action_path }}/deploy.sh

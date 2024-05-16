@@ -36,7 +36,7 @@ fi
 # npx begin telemetry --disable
 
 # Base command
-cmd="npx begin deploy"
+cmd="npx begin deploy --disable-telemetry"
 
 # Set log level
 if [ "$LOG" = "verbose" ]; then
