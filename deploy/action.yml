@@ -13,7 +13,7 @@ inputs:
     description: 'Provide arbitrary arguments to the Begin CLI'
     required: false
   channel:
-    description: 'Enable experimental features by specifying: main'
+    description: 'Enable experimental features by specifying a npmjs.org tag name'
     required: false
   log:
     description: 'Set log level: quiet|verbose|debug (default: verbose)'
@@ -25,28 +25,25 @@ runs:
   steps:
     # Default to the production ('latest') channel
     - name: Install Begin
-      if: inputs.channel != 'main'
-      run: curl -sS https://dl.begin.com/install.sh | CI=true sh
+      if: inputs.channel == null
+      run: npm i -g @begin/deploy@latest
       shell: bash
 
-    # User specified the 'main' channel
-    - name: Install Begin ('main' channel)
-      if: inputs.channel == 'main'
-      run: curl -sS https://dl.begin.com/install.sh | CI=true sh -s main
-      shell: bash
-
-    # Update $path
-    - name: Update path
-      run: echo "$HOME/.begin" >> $GITHUB_PATH
+    # User specified channel
+    - name: Install Tagged Begin
+      if: inputs.channel
+      run: npm i -g @begin/deploy@${{ inputs.channel }}
       shell: bash
 
     # Run the deployment
-    - run: ${{ github.action_path }}/deploy.sh
+    - name: Deploy to Begin
+      run: ${{ github.action_path }}/deploy.sh
       shell: bash
       env:
         BEGIN_TOKEN: ${{ inputs.begin_token }}
         BEGIN_ENV_NAME: ${{ inputs.begin_env_name }}
         BEGIN_ARGS: ${{ inputs.begin_args }}
+        BEGIN_DISABLE_TELEMETRY: true
         LOG: ${{ inputs.log }}
         CI: true
 

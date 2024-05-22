@@ -9,33 +9,35 @@ then
   ARCFILE="app.arc"
 fi
 
+if [ -z "${BEGIN_TOKEN}" ]; then
+  echo "Error: Missing begin_token"
+  exit 1
+fi
+
 if grep -q "@begin" "$ARCFILE"  &&  grep -q "appID" "$ARCFILE"
 then
-  echo "Begin appID exists"
+  echo "Discovered Begin app ID in $ARCFILE"
 else
   echo "Please create your app via `begin create` before attempting to deploy"
-  exit 0
+  exit 1
 fi
 
 # Make sure Begin is installed
-if ! command -v begin > /dev/null; then
+if ! command -v npx begin > /dev/null; then
   echo "Error: Begin not found" 1>&2
   exit 1
 fi
 
 # Install deps if necessary
 if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
-  npm i --production
+  npm i --omit=dev
 fi
 
 # Base command
-cmd="begin deploy"
+cmd="npx begin deploy"
 
-# Set log level
-if [ "$LOG" = "verbose" ]; then
-  cmd="$cmd -v"
-elif [ "$LOG" = "debug" ]; then
-  cmd="$cmd -d"
+if [ ! -z "${LOG}" ]; then
+  cmd="$cmd --$LOG"
 fi
 
 # Deploy a specific named environment
@@ -50,4 +52,9 @@ if [ ! -z "${BEGIN_ARGS}" ]; then
 fi
 
 # Hit it
-$cmd
+if $cmd; then
+  echo "Deployed successfully"
+else
+  echo "Deploy failed"
+  exit 1
+fi
