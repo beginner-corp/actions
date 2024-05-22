@@ -36,11 +36,8 @@ fi
 # Base command
 cmd="npx begin deploy"
 
-# Set log level
-if [ "$LOG" = "verbose" ]; then
-  cmd="$cmd -v"
-elif [ "$LOG" = "debug" ]; then
-  cmd="$cmd -d"
+if [ ! -z "${LOG}" ]; then
+  cmd="$cmd --$LOG"
 fi
 
 # Deploy a specific named environment
