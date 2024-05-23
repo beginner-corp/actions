@@ -31,7 +31,7 @@ runs:
 
     # User specified channel
     - name: Install Tagged Begin
-      if: inputs.channel
+      if: inputs.channel != 'main'
       run: npm i -g @begin/deploy@${{ inputs.channel }}
       shell: bash
 
