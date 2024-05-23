@@ -77,3 +77,9 @@ jobs:
           begin_token: ${{ secrets.BEGIN_TOKEN }}
           begin_env_name: production
 ```
+
+# Maintainer's Notes
+
+## Releasing
+
+GitHub Actions releases can be a pain. The key is to remove the previous `vN` tag. So if you want to update `v1`, delete the current `v1` tag and then create a new one. You can use the GitHub.com interface to do this.
