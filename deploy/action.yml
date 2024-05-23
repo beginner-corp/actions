@@ -25,7 +25,7 @@ runs:
   steps:
     # Default to the production ('latest') channel
     - name: Install Begin
-      if: inputs.channel == null
+      if: inputs.channel == null || inputs.channel == 'main'
       run: npm i -g @begin/deploy@latest
       shell: bash
 
